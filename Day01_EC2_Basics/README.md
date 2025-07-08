@@ -58,7 +58,7 @@ resource "aws_instance" "my_ec2" {
 terraform init
 terraform plan
 terraform apply
-terraform destroy
+
 
 ✅ Output
 ✅ EC2 instance created in ap-south-1 (Mumbai)
