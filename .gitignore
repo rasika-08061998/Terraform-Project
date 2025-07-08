@@ -1,0 +1,47 @@
+# --------------------------------------------
+# 🚫 Terraform files that contain sensitive state
+# --------------------------------------------
+*.tfstate
+*.tfstate.backup
+.crash/
+*.log
+
+# Ignore the .terraform directory where plugins and backend info are stored
+.terraform/
+
+# --------------------------------------------
+# 🚫 Sensitive variable and config files
+# --------------------------------------------
+*.tfvars
+*.tfvars.json
+
+# Ignore SSH private keys and AWS PEM files
+*.pem
+*.key
+*.p12
+*.cer
+
+# Ignore override configuration files (local-only customizations)
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# --------------------------------------------
+# 🔒 AWS credentials (never commit these!)
+# --------------------------------------------
+.aws/
+*.aws
+credentials
+
+# --------------------------------------------
+# ⚙️ IDE/editor and system-specific files
+# --------------------------------------------
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Node and Python artifacts (if present in multi-env setup)
+node_modules/
+__pycache__/
