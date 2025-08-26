@@ -18,7 +18,7 @@ This project demonstrates how to use **Terraform** to create an **AWS EC2 key pa
 ### 1. AWS Provider
 
 provider "aws" {
-  region = "us-east-1"
+  region = "ap-south-1"
 }
 
 
@@ -41,7 +41,7 @@ Creates a key pair in AWS using the generated public key.
 **4. Save Private Key Locally**
 resource "local_file" "private_key" {
   content         = tls_private_key.devops_key.private_key_pem
-  filename        = "/home/bob/devops-kp.pem"
+  filename        = "/home/rasika/devops-kp.pem"
   file_permission = "0600"
 }
 Saves the private key locally with secure permissions.
@@ -60,7 +60,7 @@ Saves the private key locally with secure permissions.
                       v
              +----------------+
              | Local File     |
-             | /home/bob/devops-kp.pem |
+             | /home/rasika/devops-kp.pem |
              +----------------+
 
 
@@ -76,7 +76,7 @@ Local File: Private key stored for SSH access.
 **Outcome**:
 
 AWS Key Pair named devops-kp is created.
-Private key is saved at /home/bob/devops-kp.pem.
+Private key is saved at /home/rasika/devops-kp.pem.
 Key permissions are secure (0600) for SSH login.
 
 **Skills Demonstrated** :
