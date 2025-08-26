@@ -23,6 +23,7 @@ provider "aws" {
 
 
 **2. TLS Private Key**
+
 resource "tls_private_key" "devops_key" {
   algorithm = "RSA"
   rsa_bits  = 2048
@@ -32,21 +33,27 @@ resource "tls_private_key" "devops_key" {
 Generates an RSA private key locally for AWS key pair creation.
 
 **3. AWS Key Pair**
+
 resource "aws_key_pair" "devops_kp" {
   key_name   = "devops-kp"
   public_key = tls_private_key.devops_key.public_key_openssh
 }
+
 Creates a key pair in AWS using the generated public key.
 
 **4. Save Private Key Locally**
+
 resource "local_file" "private_key" {
   content         = tls_private_key.devops_key.private_key_pem
   filename        = "/home/rasika/devops-kp.pem"
   file_permission = "0600"
 }
+
 Saves the private key locally with secure permissions.
 
 **Workflow Diagram**
+
+
              +----------------+
              | TLS Private Key |
              +--------+-------+
